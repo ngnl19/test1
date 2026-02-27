@@ -139,7 +139,7 @@ a {
 }
 /* Theme Toggle Button */
 .theme-toggle {
-  background: none;
+  background: var(--bg);
   border: none;
   cursor: pointer;
   display: flex;
