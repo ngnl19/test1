@@ -209,6 +209,10 @@ a {
   .mobile-toggle {
     display: block;
   }
+
+  .theme-toggle {
+    background: var(--bg);
+  }
 }
 
 .container {
@@ -290,33 +294,40 @@ a {
   margin-top: 80px;
 }
 
-/* Checkered Placeholder */
+/* Mission & Vision image container - Desktop default */
 .row-visual {
   height: 220px;
   border-radius: 10px;
   border: 1px solid var(--about-border);
-  background-size: 40px;
-  background-position: center;
+  overflow: hidden;
 }
 
+.row-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill container while maintaining aspect ratio */
+  display: block;
+  border-radius: 10px;
+}
+
+/* Mobile adjustments - stack and scale images naturally */
 @media (max-width: 992px) {
+  .row-inner {
+    grid-template-columns: 1fr; /* stack text and image */
+    gap: 20px; /* reduce spacing */
+  }
+
   .row-visual {
-    height: auto; /* allow image to scale */
-    max-width: 100%;
-    overflow: hidden;
+    height: auto; /* let image define height */
+    border: 1px solid var(--about-border);
   }
 
   .row-visual img {
     width: 100%;
-    height: auto;
-    max-width: 100%;
+    height: auto; /* natural height */
     object-fit: cover;
+    border-radius: 10px;
   }
-}
-
-.row-visual img {
-  border-radius: 10px;
-  object-fit: cover;
 }
 
 /* VALUES */
