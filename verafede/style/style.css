@@ -753,3 +753,94 @@ a {
     font-size: 16px;
   }
 }
+/* SERVICE SECTION */
+.service-section {
+  padding: 100px 0;
+  color: white;
+  border-bottom: 1px solid var(--border);
+  background: url("../assets/img/bg.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: auto 1fr; /* left column auto, right column flexible */
+  gap: 60px; /* reduce horizontal gap slightly */
+  align-items: center; /* vertically align left column */
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 150px;
+}
+
+.service-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  font-family: var(--font-main);
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: left;
+  padding-left: 100px;
+}
+
+.service-item {
+  margin-bottom: 10px; /* reduce vertical space between WHAT / WE / OFFER */
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.service-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* reduce vertical space between short texts */
+  font-family: var(--font-text);
+  font-size: 25px;
+  text-align: left; /* center text horizontally */
+  max-width: 600px;
+  margin: -10 auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .service-left {
+    font-size: 36px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .service-right {
+    font-size: 16px;
+  }
+}
+
+/* Center the service section content on large screens (≥1200px) */
+@media (max-width: 1200px) {
+  .service-grid {
+    grid-template-columns: 1fr; /* single column */
+    justify-items: center; /* center horizontally */
+    text-align: center;
+    padding-left: 0; /* remove left padding */
+    gap: 20px; /* reduce vertical spacing slightly */
+  }
+
+  .service-left {
+    padding-left: 0; /* remove previous padding */
+    text-align: center;
+    font-size: 60px;
+  }
+
+  .service-right {
+    text-align: center;
+    font-size: 25px;
+    margin: 0 auto;
+  }
+}
