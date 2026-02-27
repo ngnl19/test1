@@ -382,6 +382,10 @@ a {
     text-align: center;
   }
 
+  .value-icon {
+    background: none;
+  }
+
   .value-item {
     grid-template-columns: 40px 1fr;
     grid-template-rows: auto auto;
