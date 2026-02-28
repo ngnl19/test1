@@ -1,30 +1,25 @@
 /* Automatically Matches the System Theme */
 const html = document.documentElement;
-const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-function applyTheme() {
-  html.setAttribute("data-theme", systemPrefersDark.matches ? "dark" : "light");
-}
-
-applyTheme();
-systemPrefersDark.addEventListener("change", applyTheme);
-
 const themeToggle = document.getElementById("themeToggle");
 
-// Detect system theme on load
-if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  html.setAttribute("data-theme", "dark");
+// Load saved theme first
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+  html.setAttribute("data-theme", savedTheme);
+} else {
+  // fallback to system theme
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+  html.setAttribute("data-theme", systemPrefersDark.matches ? "dark" : "light");
 }
 
 // Toggle theme manually
 themeToggle.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-  if (currentTheme === "dark") {
-    html.setAttribute("data-theme", "light");
-  } else {
-    html.setAttribute("data-theme", "dark");
-  }
+  html.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
 });
 
 /* Mobile Toggle Navigation */
